@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { BLUE_MAIN } from 'constants/colors';
+import { colors } from 'constants/colors';
 import Pencil from 'assets/images/pencil.svg';
 
 interface Iprops {
@@ -9,17 +9,15 @@ interface Iprops {
 
 export const PencilIcon: React.FC<Iprops> = ({ onPress }) => {
     return (
-        <>
-            <TouchableOpacity style={styles.container} onPress={onPress}>
-                <Pencil />
-            </TouchableOpacity>
-        </>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
+            <Pencil />
+        </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: BLUE_MAIN,
+        backgroundColor: colors.blueMain,
         width: 40,
         height: 40,
         borderRadius: 12,

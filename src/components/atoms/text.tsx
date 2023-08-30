@@ -2,9 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, TextStyle } from "react-native";
 
 interface TextViewProps {
-    textType?: 'regular' | 'bold' | 'light';
+    textType?: 'regular' | 'bold' | 'light' | 'extraLight';
     style?: TextStyle | TextStyle[];
-    textsize?: 'small' | 'medium' | 'large';
+    textsize?: 'small' | 'medium' | 'large' | 'extraSmall';
     title?: string;
 }
 
@@ -33,16 +33,16 @@ export const TextView: React.FC<TextViewProps> = ({
 
 const styles = StyleSheet.create({
     regular: {
-        fontFamily: 'sans-serif',
         fontWeight: "600"
     },
     bold: {
-        fontFamily: 'sans-serif',
         fontWeight: "700"
     },
     light: {
-        fontFamily: 'sans-serif',
         fontWeight: "500"
+    },
+    extraLight: {
+        fontWeight: "400"
     },
     small: {
         fontSize: 14,
@@ -56,9 +56,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         lineHeight: 18
     },
+    extraSmall: {
+        fontSize: 13,
+        lineHeight: 13
+    },
     default: {
         fontFamily: 'Cochin',
         fontSize: 14,
+        lineHeight: 14,
         color: "#000",
     }
 });

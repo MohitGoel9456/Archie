@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { BLUE_MAIN } from 'constants/colors';
+import { colors } from 'constants/colors';
 import NavIcon from 'assets/images/navIcon.svg'
 
 interface Iprops {
@@ -19,7 +19,7 @@ export const NavigationIcon: React.FC<Iprops> = ({ onPress }) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: BLUE_MAIN,
+        backgroundColor: colors.blueMain,
         width: 44,
         height: 40,
         borderRadius: 8,
