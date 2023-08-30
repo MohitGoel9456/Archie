@@ -1,0 +1,1 @@
+export const BLUE_MAIN = "#1652F0";
