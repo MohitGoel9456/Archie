@@ -1,14 +1,18 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { BLUE_MAIN } from 'constants/colors';
-import Pencil from 'assets/images/pencil.svg'
+import Pencil from 'assets/images/pencil.svg';
 
-export const PencilIcon = () => {
+interface Iprops {
+    onPress?: () => void;
+}
+
+export const PencilIcon: React.FC<Iprops> = ({ onPress }) => {
     return (
         <>
-            <View style={styles.container}>
+            <TouchableOpacity style={styles.container} onPress={onPress}>
                 <Pencil />
-            </View>
+            </TouchableOpacity>
         </>
     )
 }

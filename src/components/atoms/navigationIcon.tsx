@@ -1,14 +1,18 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { BLUE_MAIN } from 'constants/colors';
 import NavIcon from 'assets/images/navIcon.svg'
 
-export const NavigationIcon = () => {
+interface Iprops {
+    onPress?: () => void;
+}
+
+export const NavigationIcon: React.FC<Iprops> = ({ onPress }) => {
     return (
         <>
-            <View style={styles.container}>
+            <TouchableOpacity style={styles.container} onPress={onPress}>
                 <NavIcon />
-            </View>
+            </TouchableOpacity>
         </>
     )
 }
