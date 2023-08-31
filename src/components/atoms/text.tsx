@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TextStyle } from "react-native";
+import { black } from "constants/colors";
 
 interface TextViewProps {
     textType?: 'regular' | 'bold' | 'light' | 'extraLight';
@@ -61,9 +62,9 @@ const styles = StyleSheet.create({
         lineHeight: 13
     },
     default: {
-        fontFamily: 'Cochin',
+        fontFamily: 'sans-serif',
         fontSize: 14,
         lineHeight: 14,
-        color: "#000",
+        color: black.black1,
     }
 });

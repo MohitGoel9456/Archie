@@ -6,23 +6,20 @@ import {
     View,
     Image
 } from 'react-native';
+import UserIcon from "@assets/images/user.svg";
+import { User } from 'types/user';
 
 interface Iprops {
-    name: string,
-    officeDescription: string,
-    imageUrl?: string
+    item: User
 }
 
 
 export const UserItem: React.FC<Iprops> = (props) => {
-
-    const { imageUrl, name, officeDescription } = props;
+    const { imageUrl, name, officeDescription } = props.item;
 
     return (
-        <View>
-            <View style={styles.imageContainer}>
-                <Image source={{ uri: imageUrl }} />
-            </View>
+        <View style={styles.container}>
+            <UserIcon />
 
             <View style={styles.textContainer}>
                 <TextView
@@ -41,13 +38,8 @@ export const UserItem: React.FC<Iprops> = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row'
-    },
-    imageContainer: {
-        width: 40,
-        height: 40,
-        borderRadius: 12,
-        overflow: 'hidden'
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     textContainer: {
         marginLeft: 8,
@@ -55,6 +47,7 @@ const styles = StyleSheet.create({
     },
     description: {
         color: black.black3,
-        marginTop: 4
+        marginTop: 4,
+        opacity: 0.8
     }
 })
