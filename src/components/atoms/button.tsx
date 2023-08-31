@@ -5,7 +5,7 @@ import {
     StyleSheet
 } from 'react-native';
 import { TextView } from "./text";
-import { BLUE_MAIN, EXTRA_LIGHT } from "constants/colors";
+import { colors } from "constants/colors";
 
 interface ButtonProps {
     textType?: 'regular' | 'bold' | 'light',
@@ -13,7 +13,7 @@ interface ButtonProps {
     textsize?: 'small' | 'medium' | 'large',
     containerStyle?: React.CSSProperties,
     title: string,
-    onPress?: any
+    onPress?: () => void
 }
 
 export const CustomButton = (props: ButtonProps): JSX.Element => {
@@ -44,12 +44,12 @@ const styles = StyleSheet.create({
         maxWidth: 280,
         height: 40,
         alignItems: 'center',
-        backgroundColor: EXTRA_LIGHT,
+        backgroundColor: colors.extraLight,
         paddingHorizontal: 16,
         paddingVertical: 12,
         borderRadius: 8
     },
     text: {
-        color: BLUE_MAIN
+        color: colors.blueMain
     }
 });

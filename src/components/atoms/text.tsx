@@ -5,14 +5,14 @@ import { black } from "constants/colors";
 interface TextViewProps {
     textType?: 'regular' | 'bold' | 'light' | 'extraLight';
     style?: TextStyle | TextStyle[];
-    textsize?: 'small' | 'medium' | 'large' | 'extraSmall';
+    textsize?: 'small' | 'medium' | 'large' | 'extraSmall' | 'xxs';
     title?: string;
 }
 
 export const TextView: React.FC<TextViewProps> = ({
-    textType = 'regular',
+    textType = 'light',
     style = {},
-    textsize = 'medium',
+    textsize = 'small',
     title = '',
     ...props
 }) => {
@@ -61,10 +61,15 @@ const styles = StyleSheet.create({
         fontSize: 13,
         lineHeight: 13
     },
+    xxs: {
+        fontSize: 11,
+        lineHeight: 15
+    },
     default: {
         fontFamily: 'sans-serif',
         fontSize: 14,
         lineHeight: 14,
         color: black.black1,
+        fontWeight: "400"
     }
 });

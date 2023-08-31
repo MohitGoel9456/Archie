@@ -1,7 +1,7 @@
 [
     {
         "user": {
-            "id": "1",
+            "userId": "1",
             "name": "Mohit Goel",
             "officeDescription": "💪 Work from the office"
         },
@@ -30,7 +30,7 @@
     },
     {
         "user": {
-            "id": "2",
+            "userId": "2",
             "name": "Donovan Charpin",
             "officeDescription": "💪 Work from the office"
         },

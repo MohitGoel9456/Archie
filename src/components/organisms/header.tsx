@@ -1,13 +1,19 @@
 import React from 'react';
 import {
     StyleSheet,
+    TouchableOpacity,
     View
 } from 'react-native';
 import { TextView } from '@components/atoms/text';
 import LogoSvg from "@assets/images/logo.svg";
 import { PencilIcon } from '@components/atoms/pencilIcon';
 
-export const Header: React.FC = () => {
+interface IProps {
+    onPress: () => void
+}
+
+export const Header: React.FC<IProps> = ({ onPress }) => {
+
     return (
         <View style={styles.container}>
             <View style={styles.leftContainer}>
@@ -19,7 +25,7 @@ export const Header: React.FC = () => {
                     textsize='large'
                 />
             </View>
-            <PencilIcon />
+            <PencilIcon onPress={onPress} />
         </View>
     )
 }

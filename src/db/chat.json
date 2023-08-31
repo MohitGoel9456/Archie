@@ -1,0 +1,29 @@
+[
+    {
+        "userId": "123",
+        "userName": "Donovan",
+        "userImageUrl": true,
+        "messageId": "m1",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "date": "Today",
+        "time": "3:35PM"
+    },
+    {
+        "userId": "123",
+        "userName": "Donovan",
+        "userImageUrl": false,
+        "messageId": "m2",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "date": "Today",
+        "time": "3:37PM"
+    },
+    {
+        "userId": "234",
+        "userName": "Mohit",
+        "userImageUrl": false,
+        "messageId": "m3",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "date": "Today",
+        "time": "3:40PM"
+    }
+]

@@ -6,7 +6,7 @@ export interface Room {
 
 
 export interface User {
-    id: string,
+    userId: string,
     name: string,
     imageUrl?: string,
     officeDescription: string
