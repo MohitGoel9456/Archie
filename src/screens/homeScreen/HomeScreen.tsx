@@ -30,7 +30,7 @@ const HomeScreen: React.FC = () => {
     const [expanded, setExpanded] = useState<string[]>([]);
     const [isBottomSheetVisible, setIsBottomSheetVisible] = useState<boolean>(false);
 
-    const renderRoomList = ({ item, index }: { item: Room, index: number }): React.ReactNode => {
+    const renderRoomList = ({ item, index }: { item: Room, index: number }): React.ReactElement => {
         return (
             <View style={styles.roomListContainer}>
                 <View style={styles.vector}>
@@ -64,7 +64,7 @@ const HomeScreen: React.FC = () => {
         )
     }
 
-    const renderUserList = ({ item }: { item: BookingData }): React.ReactNode => {
+    const renderUserList = ({ item }: { item: BookingData }): React.ReactElement => {
         const userId = item.user.userId;
         const bookingsList = item.bookings;
         return (

@@ -1,4 +1,4 @@
-export interface Chat {
+export interface ChatItem {
     messageId: string,
     message: string,
     date: string,
@@ -6,8 +6,4 @@ export interface Chat {
     userId: string,
     userImageUrl: boolean,
     userName: string
-}
-
-export interface ChatList {
-    list: Chat[]
 }

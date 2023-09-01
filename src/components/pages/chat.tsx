@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {
     FlatList,
 } from 'react-native';
-import { Chat as ChatItem, ChatList } from "types/chat";
+import { ChatItem } from "types/chat";
 import { LeftMessageBubble } from "@components/molecules/LeftMessageBubble";
 import { RightMessageBubble } from "@components/molecules/RightMessageBubble";
 
 interface Iprops {
-    chatList: ChatList
+    chatList: ChatItem[]
 }
 
 export const Chat: React.FC<Iprops> = (props) => {
@@ -18,11 +18,11 @@ export const Chat: React.FC<Iprops> = (props) => {
     let currentUser = '234';
 
     const handleOnPressOnMessage = (messageId: string) => {
-        if (!showDateTimeforMessage.includes())
+        if (!showDateTimeforMessage.includes(messageId))
             setShowDateTimeforMessage([...showDateTimeforMessage, messageId]);
     }
 
-    const renderChatItem = ({ item }: { item: ChatItem }): React.ReactNode => {
+    const renderChatItem = ({ item }: { item: ChatItem }) => {
         const isCurrentUser = item.userId === currentUser;
         if (isCurrentUser) {
             return (
