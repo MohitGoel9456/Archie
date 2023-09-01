@@ -7,9 +7,10 @@ import {
 import CTAIcon from '@assets/images/cta.svg';
 import { black } from 'constants/colors';
 import { heightPixel, pixelSizeHorizontal, pixelSizeVertical } from 'utils/normalizeUtils';
+import { NavigationIcon } from '@components/atoms/navigationIcon';
 
 export const ChatFooter: React.FC = () => {
-    const [text, setText] = useState("Aa");
+    const [text, setText] = useState("");
 
     return (
         <View style={styles.container}>
@@ -17,10 +18,12 @@ export const ChatFooter: React.FC = () => {
             <TextInput
                 multiline
                 value={text}
+                placeholder='Aa'
                 onChangeText={setText}
                 style={styles.input}
                 textAlignVertical="bottom"
             />
+            {text.length > 0 && <NavigationIcon />}
         </View>
     )
 }
@@ -28,8 +31,9 @@ export const ChatFooter: React.FC = () => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        paddingHorizontal: pixelSizeHorizontal(16),
-        paddingVertical: pixelSizeVertical(16)
+        paddingHorizontal: pixelSizeHorizontal(8),
+        paddingVertical: pixelSizeVertical(16),
+        marginBottom: 8
     },
     input: {
         borderWidth: 1,
