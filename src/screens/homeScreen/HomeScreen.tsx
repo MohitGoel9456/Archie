@@ -4,7 +4,8 @@ import {
     View,
     FlatList,
     TouchableOpacity,
-    StatusBar
+    StatusBar,
+    Platform
 } from 'react-native';
 import { BookingData, Room } from 'types/user';
 import { RoomItem } from '@components/organisms/room';
@@ -16,7 +17,7 @@ import { BottomSheet } from '@components/molecules/bottomSheet';
 import { Chat } from '@components/pages/chat';
 import { ChatFooter } from '@components/molecules/chatFooter';
 import { Separator } from '@components/atoms/separator';
-import { screenHeight, screenWidth } from 'utils/dimension';
+import { screenWidth } from 'utils/dimension';
 import { heightPixel, widthPixel } from 'utils/normalizeUtils';
 import Vector from '@assets/images/vector.svg';
 import Vector151 from '@assets/images/vector151.svg';
@@ -129,7 +130,7 @@ const HomeScreen: React.FC = () => {
                 keyExtractor={item => item.user.userId}
                 ItemSeparatorComponent={() => <View style={styles.separator} />}
             />
-            {isBottomSheetVisible && <StatusBar barStyle="light-content" />}
+            {isBottomSheetVisible && Platform.OS == 'ios' && <StatusBar barStyle="light-content" />}
             <BottomSheet
                 visible={isBottomSheetVisible}
             >
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
         marginTop: 16,
     },
     headerContainer: {
-        height: screenHeight * 0.07
+        height: heightPixel(60),
     },
     headerLogo: {
         height: heightPixel(24),
