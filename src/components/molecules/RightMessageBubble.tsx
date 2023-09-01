@@ -75,5 +75,8 @@ const styles = StyleSheet.create({
     chatText: {
         color: '#fff'
     },
-    imageContainer: { marginRight: 20, marginBottom: 8 }
+    imageContainer: {
+        marginRight: 20,
+        marginBottom: 8
+    }
 })

@@ -1,6 +1,6 @@
 import React from 'react';
-import { black } from 'constants/colors';
 import { StyleSheet, ViewStyle, TextStyle, TouchableOpacity } from 'react-native';
+import { black } from 'constants/colors';
 import { TextView } from './text';
 import { pixelSizeHorizontal, pixelSizeVertical, widthPixel } from 'utils/normalizeUtils';
 

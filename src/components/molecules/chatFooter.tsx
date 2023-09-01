@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import CTAIcon from '@assets/images/cta.svg';
 import { black } from 'constants/colors';
+import { heightPixel, pixelSizeHorizontal, pixelSizeVertical } from 'utils/normalizeUtils';
 
 export const ChatFooter: React.FC = () => {
     const [text, setText] = useState("Aa");
@@ -27,9 +28,8 @@ export const ChatFooter: React.FC = () => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        height: 68,
-        padding: 12,
-        paddingBottom: 24
+        paddingHorizontal: pixelSizeHorizontal(16),
+        paddingVertical: pixelSizeVertical(16)
     },
     input: {
         borderWidth: 1,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         flex: 1,
         borderRadius: 12,
         marginLeft: 8,
-        minHeight: 40,
+        minHeight: heightPixel(40),
         padding: 10,
         paddingTop: 10
     }

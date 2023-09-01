@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { colors } from 'constants/colors';
 import Pencil from 'assets/images/pencil.svg';
+import { colors } from 'constants/colors';
 import { heightPixel, widthPixel } from 'utils/normalizeUtils';
 
 interface Iprops {

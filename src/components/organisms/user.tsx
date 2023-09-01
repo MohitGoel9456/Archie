@@ -1,11 +1,11 @@
-import { TextView } from '@components/atoms/text';
-import { black } from 'constants/colors';
 import React from 'react';
 import {
     StyleSheet,
     View,
     Image
 } from 'react-native';
+import { TextView } from '@components/atoms/text';
+import { black } from 'constants/colors';
 import UserIcon from "@assets/images/user.svg";
 import { User } from 'types/user';
 
