@@ -34,16 +34,16 @@ const styles = StyleSheet.create({
         paddingHorizontal: pixelSizeHorizontal(8),
         paddingVertical: pixelSizeVertical(16),
         marginBottom: 8,
-        alignItems: 'center'
+        alignItems: 'flex-end'
     },
     input: {
         borderWidth: 1,
-        borderColor: black.black5,
-        backgroundColor: black.black5,
+        borderColor: black.black6,
+        backgroundColor: black.black6,
         flex: 1,
         borderRadius: 12,
         marginLeft: 8,
-        minHeight: heightPixel(40),
+        height: heightPixel(40),
         padding: 10,
         paddingTop: 10
     }

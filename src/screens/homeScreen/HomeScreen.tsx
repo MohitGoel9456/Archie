@@ -103,6 +103,7 @@ const HomeScreen: React.FC = () => {
         setIsBottomSheetVisible(false);
     }
 
+    //render Bottom sheet for chat
     const renderBottomSheet = (): React.ReactNode => {
         return (
             <>
