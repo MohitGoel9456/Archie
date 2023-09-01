@@ -26,14 +26,17 @@ interface IProps {
 export const Header: React.FC<IProps> = (props) => {
     const { onPress, isShowPencilIcon = true, textStyle, logoStyle, containerStyles, title, logo } = props;
     const finalTitle = title ? title : 'Who is coming';
-    const finalLogo = logo ? logo : headerLogo;
     return (
         <View style={[styles.container, containerStyles]}>
             <View style={styles.leftContainer}>
-                <SVGLogo />
-                {/* <Image style={[styles.logo, logoStyle]}
-                    source={finalLogo}
-                /> */}
+                {logo ?
+                    <Image style={[styles.logo, logoStyle]}
+                        source={logo}
+                    />
+                    :
+                    <SVGLogo />
+                }
+
                 <TextView
                     style={[styles.title, textStyle]}
                     title={finalTitle}
