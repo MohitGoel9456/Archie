@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   StyleSheet,
   useColorScheme,
+  StatusBar
 } from 'react-native';
 
 import {
@@ -26,6 +27,7 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={[backgroundStyle, styles.container]}>
+      <StatusBar barStyle="dark-content" backgroundColor={"#fff"} />
       <HomeScreen />
     </SafeAreaView>
   );
@@ -33,7 +35,8 @@ function App(): JSX.Element {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    flex: 1
   },
   sectionTitle: {
     fontSize: 24,

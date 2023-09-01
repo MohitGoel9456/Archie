@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: pixelSizeHorizontal(8),
         paddingVertical: pixelSizeVertical(16),
-        marginBottom: 8
+        marginBottom: 8,
+        alignItems: 'center'
     },
     input: {
         borderWidth: 1,
