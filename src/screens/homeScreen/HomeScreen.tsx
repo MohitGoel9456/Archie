@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
         lineHeight: 18
     },
     vector: {
-        bottom: heightPixel(20),
+        bottom: heightPixel(18),
         position: 'absolute'
     },
     roomItem: { marginLeft: 26 }
