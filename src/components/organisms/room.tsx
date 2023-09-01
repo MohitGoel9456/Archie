@@ -8,6 +8,7 @@ import { NavigationIcon } from '@components/atoms/navigationIcon';
 import { TextView } from '@components/atoms/text';
 import { black } from 'constants/colors';
 import RoomIcon from '@assets/images/room.svg';
+import { screenWidth } from 'utils/dimension';
 
 export interface Iprops {
     data: Room
@@ -19,10 +20,11 @@ export const RoomItem: React.FC<Iprops> = (props) => {
 
     return (
         <View style={styles.container}>
-            <RoomIcon style={{ flex: 0.5 }} />
+            <RoomIcon />
 
             <View style={styles.textContainer}>
                 <TextView
+                    style={styles.textName}
                     title={name}
                     textType='bold'
                 />
@@ -30,10 +32,9 @@ export const RoomItem: React.FC<Iprops> = (props) => {
                     style={styles.description}
                     title={dateTime}
                     textType='extraLight'
-                    textsize='extraSmall'
                 />
             </View>
-            <NavigationIcon style={{ flex: 0.5 }} />
+            <NavigationIcon />
         </View>
     )
 }
@@ -42,16 +43,19 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginLeft: 48,
-        marginRight: 8
+        justifyContent: 'space-between',
+        width: screenWidth * 0.74
     },
     textContainer: {
         marginLeft: 8,
         alignItems: "flex-start",
-        flex: 7
     },
     description: {
         color: black.black3,
-        marginTop: 4
+        marginTop: 4,
+        fontSize: 11
+    },
+    textName: {
+        lineHeight: 18
     }
 })

@@ -10,7 +10,7 @@ import UserIcon from "@assets/images/user.svg";
 import { User } from 'types/user';
 
 interface Iprops {
-    item: User
+    item: User,
 }
 
 

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import {
     StyleSheet,
     View,
-    FlatList
+    FlatList,
+    TouchableOpacity,
 } from 'react-native';
 import bookings from 'db/bookingData.json';
 import chatData from 'db/chat.json';
@@ -11,9 +12,11 @@ import { RoomItem } from '@components/organisms/room';
 import { Header } from '@components/organisms/header';
 import { UserItem } from '@components/organisms/user';
 import { CustomButton } from '@components/atoms/button';
-import { black } from 'constants/colors';
+import { black, colors } from 'constants/colors';
 import { BottomSheet } from '@components/molecules/bottomSheet';
 import { Chat } from '@components/pages/chat';
+import julie from '@assets/images/julie.png';
+import { ChatFooter } from '@components/molecules/chatFooter';
 
 const HomeScreen: React.FC = () => {
 
@@ -22,20 +25,29 @@ const HomeScreen: React.FC = () => {
 
     const renderRoomList = ({ item }: { item: Room }): React.ReactNode => {
         return (
-            <RoomItem data={item} />
+            <View style={styles.roomListContainer}>
+                <RoomItem data={item} />
+            </View>
         )
     }
 
     const handleShowMore = (id: string): void => {
-        console.log("iuser id ", id);
         setExpanded([...expanded, id]);
     }
 
     const renderRoomWithShowMore = (item: Room, id: string): React.ReactNode => {
         return (
-            <View style={{ alignItems: 'center' }}>
+            <View style={styles.singleRoomItem}>
                 <RoomItem data={item} />
-                <CustomButton title="Show More" onPress={() => handleShowMore(id)} />
+                <View style={styles.showMoreButton}>
+                    <CustomButton
+                        textStyle={styles.buttonTextStyle}
+                        title="Show 2 more bookings"
+                        onPress={() => handleShowMore(id)}
+                        textsize="extraSmall"
+                        textType='bold'
+                    />
+                </View>
             </View>
         )
     }
@@ -44,7 +56,8 @@ const HomeScreen: React.FC = () => {
         const userId = item.user.userId;
         return (
             <View style={styles.listContainer}>
-                <UserItem item={item.user} />
+                <UserItem item={item.user}
+                />
                 {expanded.includes(userId) ?
                     <FlatList
                         data={item.bookings}
@@ -68,7 +81,18 @@ const HomeScreen: React.FC = () => {
 
     const renderBottomSheet = (): React.ReactNode => {
         return (
-            <Chat chatList={chatData} />
+            <>
+                <TouchableOpacity style={styles.homeIndicator} onPress={onBottomSheetClosePress} />
+                <Header
+                    containerStyles={styles.headerContainer}
+                    logoStyle={styles.headerLogo}
+                    isShowPencilIcon={false}
+                    title='julie'
+                    logo={julie}
+                />
+                <Chat chatList={chatData} />
+                <ChatFooter />
+            </>
         )
     }
 
@@ -100,8 +124,38 @@ const styles = StyleSheet.create({
     },
     separator: {
         height: 1,
-        backgroundColor: black.black5,
+        backgroundColor: colors.separator,
         marginTop: 16,
+    },
+    headerContainer: {
+        height: 60
+    },
+    headerLogo: {
+        height: 24,
+        width: 24,
+        borderRadius: 8
+    },
+    homeIndicator: {
+        width: 32,
+        height: 5,
+        alignSelf: 'center',
+        backgroundColor: black.black5,
+        marginTop: 8
+    },
+    showMoreButton: {
+        marginTop: 8
+    },
+    roomListContainer: {
+        marginTop: 4,
+        marginLeft: 52
+    },
+    singleRoomItem: {
+        alignItems: 'center',
+        marginLeft: 52,
+        marginRight: 24
+    },
+    buttonTextStyle: {
+        lineHeight: 18
     }
 })
 

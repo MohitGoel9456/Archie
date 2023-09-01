@@ -6,11 +6,12 @@ import {
 } from 'react-native';
 import { TextView } from "./text";
 import { colors } from "constants/colors";
+import { screenWidth, screenHeight } from "utils/dimension";
 
 interface ButtonProps {
-    textType?: 'regular' | 'bold' | 'light',
+    textType?: 'regular' | 'bold' | 'light' | 'extraLight';
     textStyle?: TextStyle | TextStyle[],
-    textsize?: 'small' | 'medium' | 'large',
+    textsize?: 'small' | 'medium' | 'large' | 'extraSmall' | 'xxs';
     containerStyle?: React.CSSProperties,
     title: string,
     onPress?: () => void
@@ -41,12 +42,12 @@ export const CustomButton = (props: ButtonProps): JSX.Element => {
 
 const styles = StyleSheet.create({
     container: {
-        maxWidth: 280,
-        height: 40,
+        minWidth: screenWidth * .75,
+        height: screenHeight * 0.049,
         alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: colors.extraLight,
         paddingHorizontal: 16,
-        paddingVertical: 12,
         borderRadius: 8
     },
     text: {

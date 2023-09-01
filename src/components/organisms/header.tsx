@@ -2,30 +2,45 @@ import React from 'react';
 import {
     StyleSheet,
     TouchableOpacity,
-    View
+    View,
+    Image,
+    ViewStyle,
+    TextStyle,
+    ImageStyle
 } from 'react-native';
 import { TextView } from '@components/atoms/text';
-import LogoSvg from "@assets/images/logo.svg";
 import { PencilIcon } from '@components/atoms/pencilIcon';
+import headerLogo from '@assets/images/image.png';
+import { screenHeight, screenWidth } from 'utils/dimension';
 
 interface IProps {
-    onPress: () => void
+    onPress?: () => void;
+    logoStyle?: ImageStyle;
+    textStyle?: TextStyle | undefined;
+    isShowPencilIcon?: boolean;
+    containerStyles?: ViewStyle;
+    title?: string;
+    logo?: string;
 }
 
-export const Header: React.FC<IProps> = ({ onPress }) => {
-
+export const Header: React.FC<IProps> = (props) => {
+    const { onPress, isShowPencilIcon = true, textStyle, logoStyle, containerStyles, title, logo } = props;
+    const finalTitle = title ? title : 'Who is coming';
+    const finalLogo = logo ? logo : headerLogo;
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, containerStyles]}>
             <View style={styles.leftContainer}>
-                <LogoSvg />
+                <Image style={[styles.logo, logoStyle]}
+                    source={finalLogo}
+                />
                 <TextView
-                    style={styles.title}
-                    title='Who is coming'
+                    style={[styles.title, textStyle]}
+                    title={finalTitle}
                     textType='bold'
                     textsize='large'
                 />
             </View>
-            <PencilIcon onPress={onPress} />
+            {isShowPencilIcon && <PencilIcon onPress={onPress} />}
         </View>
     )
 }
@@ -33,7 +48,7 @@ export const Header: React.FC<IProps> = ({ onPress }) => {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: 40,
+        height: screenHeight * 0.05,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
@@ -43,6 +58,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        marginLeft: 4
+        marginLeft: 4,
+        lineHeight: 24
+    },
+    logo: {
+        width: screenWidth * 0.106,
+        height: screenHeight * 0.049,
     }
 })

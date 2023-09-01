@@ -4,7 +4,7 @@ import { black } from "constants/colors";
 
 interface TextViewProps {
     textType?: 'regular' | 'bold' | 'light' | 'extraLight';
-    style?: TextStyle | TextStyle[];
+    style?: TextStyle | undefined;
     textsize?: 'small' | 'medium' | 'large' | 'extraSmall' | 'xxs';
     title?: string;
 }

@@ -4,34 +4,32 @@ import {
     Modal,
     View,
     Text,
-    TouchableOpacity,
+    TouchableWithoutFeedback,
     StyleSheet
 } from 'react-native';
 import { black } from 'constants/colors';
 
 interface IProps {
     visible: boolean;
-    onClose: () => void;
     children: React.ReactNode;
+    onClose?: () => void;
 }
 
 export const BottomSheet: React.FC<IProps> = (props) => {
-    const { visible, onClose, children } = props
+    const { visible, children, onClose } = props
     return (
         <Modal
             style={styles.modalContent}
             visible={visible}
             animationType="slide"
-            onRequestClose={onClose}
         >
-            <View style={styles.modalContainer}>
-                <View style={styles.modalContent}>
-                    <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-                        <Text style={styles.closeButtonText}>Close</Text>
-                    </TouchableOpacity>
-                    {children}
+            <TouchableWithoutFeedback onPress={onClose}>
+                <View style={styles.modalContainer}>
+                    <View style={styles.modalContent}>
+                        {children}
+                    </View>
                 </View>
-            </View>
+            </TouchableWithoutFeedback>
         </Modal>
     )
 }
@@ -47,14 +45,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        paddingHorizontal: 20,
-        paddingVertical: 30,
-    },
-    closeButton: {
-        alignSelf: 'flex-end',
-        marginTop: 10,
-    },
-    closeButtonText: {
-        color: 'blue',
-    },
+        paddingHorizontal: 16,
+    }
 });

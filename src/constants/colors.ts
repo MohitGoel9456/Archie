@@ -1,6 +1,7 @@
 export const colors = {
     blueMain: "#1652F0",
-    extraLight: "#E8ECFA"
+    extraLight: "#E8ECFA",
+    separator: '#F4F6F9'
 }
 
 export const black = {
