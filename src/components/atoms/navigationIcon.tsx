@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { colors } from 'constants/colors';
-import NavIcon from 'assets/images/navIcon.svg'
 import { heightPixel, widthPixel } from 'utils/normalizeUtils';
+import { NavigationLogo } from '@assets/images/navigationLogo';
 
 interface Iprops {
     onPress?: () => void;
@@ -12,7 +12,7 @@ export const NavigationIcon: React.FC<Iprops> = ({ onPress }) => {
     return (
         <>
             <TouchableOpacity style={styles.container} onPress={onPress}>
-                <NavIcon />
+                <NavigationLogo />
             </TouchableOpacity>
         </>
     )

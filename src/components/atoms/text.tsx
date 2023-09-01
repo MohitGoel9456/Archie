@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         lineHeight: 15
     },
     default: {
-        fontFamily: 'sans-serif',
+        fontFamily: 'sans-serif', //need to add required font style
         fontSize: fontPixel(14),
         lineHeight: 14,
         color: black.black1,

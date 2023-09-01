@@ -11,6 +11,7 @@ import { TextView } from '@components/atoms/text';
 import { PencilIcon } from '@components/atoms/pencilIcon';
 import headerLogo from '@assets/images/image.png';
 import { heightPixel, widthPixel } from 'utils/normalizeUtils';
+import { SVGLogo } from '@assets/images/svgLogo';
 
 interface IProps {
     onPress?: () => void;
@@ -29,9 +30,10 @@ export const Header: React.FC<IProps> = (props) => {
     return (
         <View style={[styles.container, containerStyles]}>
             <View style={styles.leftContainer}>
-                <Image style={[styles.logo, logoStyle]}
+                <SVGLogo />
+                {/* <Image style={[styles.logo, logoStyle]}
                     source={finalLogo}
-                />
+                /> */}
                 <TextView
                     style={[styles.title, textStyle]}
                     title={finalTitle}

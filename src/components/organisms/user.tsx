@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { TextView } from '@components/atoms/text';
 import { black } from 'constants/colors';
-import UserIcon from "@assets/images/user.svg";
+import { UserLogo } from '@assets/userLogo';
 import { User } from 'types/user';
 
 interface Iprops {
@@ -19,7 +19,7 @@ export const UserItem: React.FC<Iprops> = (props) => {
 
     return (
         <View style={styles.container}>
-            <UserIcon />
+            <UserLogo />
 
             <View style={styles.textContainer}>
                 <TextView

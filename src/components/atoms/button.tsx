@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { TextView } from "./text";
 import { colors } from "constants/colors";
-import { screenWidth, screenHeight } from "utils/dimension";
+import { screenHeight } from "utils/dimension";
 
 interface ButtonProps {
     textType?: 'regular' | 'bold' | 'light' | 'extraLight';
@@ -42,7 +42,7 @@ export const CustomButton = (props: ButtonProps): JSX.Element => {
 
 const styles = StyleSheet.create({
     container: {
-        minWidth: screenWidth * .75,
+        width: '100%',
         height: screenHeight * 0.049,
         alignItems: 'center',
         justifyContent: 'center',

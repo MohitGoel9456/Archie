@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import Pencil from 'assets/images/pencil.svg';
 import { colors } from 'constants/colors';
 import { heightPixel, widthPixel } from 'utils/normalizeUtils';
+import { PencilLogo } from '@assets/images/pencilLogo';
 
 interface Iprops {
     onPress?: () => void;
@@ -11,7 +11,7 @@ interface Iprops {
 export const PencilIcon: React.FC<Iprops> = ({ onPress }) => {
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
-            <Pencil />
+            <PencilLogo />
         </TouchableOpacity>
     )
 }

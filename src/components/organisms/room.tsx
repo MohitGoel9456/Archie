@@ -20,20 +20,22 @@ export const RoomItem: React.FC<Iprops> = (props) => {
 
     return (
         <View style={styles.container}>
-            <RoomIcon />
+            <View style={styles.subContainer}>
+                <RoomIcon />
 
-            <View style={styles.textContainer}>
-                <TextView
-                    style={styles.textName}
-                    title={name}
-                    textType='bold'
-                />
-                <TextView
-                    style={styles.description}
-                    title={dateTime}
-                    textType='extraLight'
-                    textsize='extraSmall'
-                />
+                <View style={styles.textContainer}>
+                    <TextView
+                        style={styles.textName}
+                        title={name}
+                        textType='bold'
+                    />
+                    <TextView
+                        style={styles.description}
+                        title={dateTime}
+                        textType='extraLight'
+                        textsize='extraSmall'
+                    />
+                </View>
             </View>
             <NavigationIcon />
         </View>
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        width: screenWidth * 0.74
+        width: screenWidth * 0.74,
     },
     textContainer: {
         marginLeft: 8,
@@ -57,5 +59,8 @@ const styles = StyleSheet.create({
     },
     textName: {
         lineHeight: 18
+    },
+    subContainer: {
+        flexDirection: 'row'
     }
 })

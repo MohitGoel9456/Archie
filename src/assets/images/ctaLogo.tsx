@@ -1,4 +1,16 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+import { heightPixel, widthPixel } from 'utils/normalizeUtils';
+import React from 'react';
+import { SvgXml } from 'react-native-svg';
+
+interface Iprops {
+    height?: number;
+    width?: number
+}
+
+export const CTALogo: React.FC<Iprops> = (props) => {
+    const { height = heightPixel(40), width = widthPixel(40) } = props;
+    const xml = `
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="12" fill="#E8ECFA"/>
 <g clip-path="url(#clip0_1_830)">
 <path d="M12.125 23.5V16.5C12.125 15.3397 12.5859 14.2269 13.4064 13.4064C14.2269 12.5859 15.3397 12.125 16.5 12.125H23.5C24.6603 12.125 25.7731 12.5859 26.5936 13.4064C27.4141 14.2269 27.875 15.3397 27.875 16.5V23.5C27.875 24.6603 27.4141 25.7731 26.5936 26.5936C25.7731 27.4141 24.6603 27.875 23.5 27.875H16.5C15.3397 27.875 14.2269 27.4141 13.4064 26.5936C12.5859 25.7731 12.125 24.6603 12.125 23.5Z" stroke="#1652F0" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
@@ -11,3 +23,8 @@
 </clipPath>
 </defs>
 </svg>
+`
+    return (
+        <SvgXml xml={xml} height={height} width={width} />
+    )
+}

@@ -4,17 +4,17 @@ import {
     View,
     TextInput
 } from 'react-native';
-import CTAIcon from '@assets/images/cta.svg';
 import { black } from 'constants/colors';
 import { heightPixel, pixelSizeHorizontal, pixelSizeVertical } from 'utils/normalizeUtils';
 import { NavigationIcon } from '@components/atoms/navigationIcon';
+import { CTALogo } from '@assets/images/ctaLogo';
 
 export const ChatFooter: React.FC = () => {
     const [text, setText] = useState("");
 
     return (
         <View style={styles.container}>
-            <CTAIcon />
+            <CTALogo />
             <TextInput
                 multiline
                 value={text}
