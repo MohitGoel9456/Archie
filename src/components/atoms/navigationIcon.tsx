@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { colors } from 'constants/colors';
 import NavIcon from 'assets/images/navIcon.svg'
-import { screenHeight, screenWidth } from 'utils/dimension';
+import { heightPixel, widthPixel } from 'utils/normalizeUtils';
 
 interface Iprops {
     onPress?: () => void;
@@ -21,8 +21,8 @@ export const NavigationIcon: React.FC<Iprops> = ({ onPress }) => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.blueMain,
-        width: screenWidth * 0.106,
-        height: screenHeight * 0.049,
+        width: widthPixel(40),
+        height: heightPixel(40),
         borderRadius: 8,
         marginLeft: 8,
         alignItems: 'center',

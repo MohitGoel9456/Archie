@@ -2,6 +2,7 @@ import React from 'react';
 import { black } from 'constants/colors';
 import { StyleSheet, ViewStyle, TextStyle, TouchableOpacity } from 'react-native';
 import { TextView } from './text';
+import { pixelSizeHorizontal, pixelSizeVertical, widthPixel } from 'utils/normalizeUtils';
 
 interface IProps {
     message: string,
@@ -21,8 +22,9 @@ const ChatBubble: React.FC<IProps> = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 232,
-        padding: 12,
+        width: widthPixel(232),
+        paddingVertical: pixelSizeVertical(12),
+        paddingHorizontal: pixelSizeHorizontal(12),
         borderRadius: 16,
         alignItems: 'center',
         backgroundColor: black.black6,

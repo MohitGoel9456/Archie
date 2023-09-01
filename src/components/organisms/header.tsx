@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     StyleSheet,
-    TouchableOpacity,
     View,
     Image,
     ViewStyle,
@@ -11,7 +10,7 @@ import {
 import { TextView } from '@components/atoms/text';
 import { PencilIcon } from '@components/atoms/pencilIcon';
 import headerLogo from '@assets/images/image.png';
-import { screenHeight, screenWidth } from 'utils/dimension';
+import { heightPixel, widthPixel } from 'utils/normalizeUtils';
 
 interface IProps {
     onPress?: () => void;
@@ -48,7 +47,7 @@ export const Header: React.FC<IProps> = (props) => {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: screenHeight * 0.05,
+        height: heightPixel(44),
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
         lineHeight: 24
     },
     logo: {
-        width: screenWidth * 0.106,
-        height: screenHeight * 0.049,
+        width: widthPixel(40),
+        height: heightPixel(40),
     }
 })

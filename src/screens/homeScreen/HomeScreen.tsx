@@ -20,6 +20,7 @@ import julie from '@assets/images/julie.png';
 import { ChatFooter } from '@components/molecules/chatFooter';
 import { Separator } from '@components/atoms/separator';
 import { screenHeight } from 'utils/dimension';
+import { heightPixel, widthPixel } from 'utils/normalizeUtils';
 
 const HomeScreen: React.FC = () => {
 
@@ -135,13 +136,13 @@ const styles = StyleSheet.create({
         height: screenHeight * 0.07
     },
     headerLogo: {
-        height: 24,
-        width: 24,
+        height: heightPixel(24),
+        width: widthPixel(24),
         borderRadius: 8
     },
     homeIndicator: {
-        width: 32,
-        height: 5,
+        width: widthPixel(32),
+        height: heightPixel(5),
         alignSelf: 'center',
         backgroundColor: black.black5,
         marginTop: 8
