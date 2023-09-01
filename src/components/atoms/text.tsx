@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TextStyle } from "react-native";
 import { black } from "constants/colors";
+import { reduceFontSize } from "utils/fontSizeUtil";
 
 interface TextViewProps {
     textType?: 'regular' | 'bold' | 'light' | 'extraLight';
@@ -46,23 +47,23 @@ const styles = StyleSheet.create({
         fontWeight: "400"
     },
     small: {
-        fontSize: 14,
+        fontSize: reduceFontSize(14),
         lineHeight: 14
     },
     medium: {
-        fontSize: 16,
+        fontSize: reduceFontSize(16),
         lineHeight: 16
     },
     large: {
-        fontSize: 18,
+        fontSize: reduceFontSize(18),
         lineHeight: 18
     },
     extraSmall: {
-        fontSize: 13,
+        fontSize: reduceFontSize(13),
         lineHeight: 13
     },
     xxs: {
-        fontSize: 11,
+        fontSize: reduceFontSize(11),
         lineHeight: 15
     },
     default: {

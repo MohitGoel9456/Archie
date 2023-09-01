@@ -3,33 +3,27 @@ import React from 'react';
 import {
     Modal,
     View,
-    Text,
-    TouchableWithoutFeedback,
-    StyleSheet
+    StyleSheet,
 } from 'react-native';
 import { black } from 'constants/colors';
 
 interface IProps {
     visible: boolean;
     children: React.ReactNode;
-    onClose?: () => void;
 }
 
 export const BottomSheet: React.FC<IProps> = (props) => {
-    const { visible, children, onClose } = props
+    const { visible, children } = props
     return (
         <Modal
-            style={styles.modalContent}
             visible={visible}
             animationType="slide"
         >
-            <TouchableWithoutFeedback onPress={onClose}>
-                <View style={styles.modalContainer}>
-                    <View style={styles.modalContent}>
-                        {children}
-                    </View>
+            <View style={styles.modalContainer}>
+                <View style={styles.modalContent}>
+                    {children}
                 </View>
-            </TouchableWithoutFeedback>
+            </View>
         </Modal>
     )
 }

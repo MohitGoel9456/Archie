@@ -4,6 +4,7 @@ import {
     View,
     FlatList,
     TouchableOpacity,
+    StatusBar
 } from 'react-native';
 import bookings from 'db/bookingData.json';
 import chatData from 'db/chat.json';
@@ -17,6 +18,8 @@ import { BottomSheet } from '@components/molecules/bottomSheet';
 import { Chat } from '@components/pages/chat';
 import julie from '@assets/images/julie.png';
 import { ChatFooter } from '@components/molecules/chatFooter';
+import { Separator } from '@components/atoms/separator';
+import { screenHeight } from 'utils/dimension';
 
 const HomeScreen: React.FC = () => {
 
@@ -90,12 +93,13 @@ const HomeScreen: React.FC = () => {
                     title='julie'
                     logo={julie}
                 />
+                <Separator />
                 <Chat chatList={chatData} />
+                <Separator />
                 <ChatFooter />
             </>
         )
     }
-
     return (
         <View style={styles.container}>
             <Header onPress={onPencilIconPress} />
@@ -105,9 +109,9 @@ const HomeScreen: React.FC = () => {
                 keyExtractor={item => item.user.userId}
                 ItemSeparatorComponent={() => <View style={styles.separator} />}
             />
+            {isBottomSheetVisible && <StatusBar barStyle="light-content" />}
             <BottomSheet
                 visible={isBottomSheetVisible}
-                onClose={onBottomSheetClosePress}
             >
                 {renderBottomSheet()}
             </BottomSheet>
@@ -128,7 +132,7 @@ const styles = StyleSheet.create({
         marginTop: 16,
     },
     headerContainer: {
-        height: 60
+        height: screenHeight * 0.07
     },
     headerLogo: {
         height: 24,

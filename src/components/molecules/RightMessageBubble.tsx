@@ -3,7 +3,6 @@ import {
     View,
     StyleSheet,
     ViewStyle,
-    Image
 } from 'react-native';
 import ChatBubble from '@components/atoms/chatBubble';
 import FriendLogo from '@assets/images/friend.svg';
@@ -17,15 +16,17 @@ interface IProps {
     dateAndTime: string,
     isUser?: boolean,
     imageUrl?: boolean
+    isDateVisible?: boolean;
+    onPress?: () => void;
 }
 
 export const RightMessageBubble: React.FC<IProps> = (props) => {
 
-    const { message, passedStyle, dateAndTime, imageUrl } = props;
+    const { message, passedStyle, dateAndTime, imageUrl, isDateVisible = false, onPress } = props;
 
     return (
         <View style={styles.container}>
-            {<View style={styles.imageContainer}>
+            {imageUrl && <View style={styles.imageContainer}>
                 <PhotoCollection />
             </View>}
             <View style={[styles.messageContainer, passedStyle]}>
@@ -33,15 +34,18 @@ export const RightMessageBubble: React.FC<IProps> = (props) => {
                     style={styles.bubble}
                     message={message}
                     passedTextStyle={styles.chatText}
+                    onPress={onPress}
                 />
                 <FriendLogo />
             </View>
-            <TextView
-                style={styles.date}
-                title={dateAndTime}
-                textType={'extraLight'}
-                textsize='xxs'
-            />
+            {isDateVisible &&
+                <TextView
+                    style={styles.date}
+                    title={dateAndTime}
+                    textType={'extraLight'}
+                    textsize='xxs'
+                />
+            }
         </View>
     )
 }
@@ -53,6 +57,7 @@ const styles = StyleSheet.create({
     messageContainer: {
         flexDirection: 'row',
         alignItems: 'flex-end',
+        marginBottom: 8
     },
     bubble: {
         marginRight: 8,
@@ -63,7 +68,8 @@ const styles = StyleSheet.create({
         color: black.black3,
         lineHeight: 16,
         marginRight: 28,
-        padding: 8,
+        paddingBottom: 8,
+        paddingRight: 8,
         textAlign: 'right'
     },
     chatText: {

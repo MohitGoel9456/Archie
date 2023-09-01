@@ -32,6 +32,7 @@ export const RoomItem: React.FC<Iprops> = (props) => {
                     style={styles.description}
                     title={dateTime}
                     textType='extraLight'
+                    textsize='extraSmall'
                 />
             </View>
             <NavigationIcon />
@@ -53,7 +54,6 @@ const styles = StyleSheet.create({
     description: {
         color: black.black3,
         marginTop: 4,
-        fontSize: 11
     },
     textName: {
         lineHeight: 18

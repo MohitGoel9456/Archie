@@ -1,20 +1,21 @@
-import { black, colors } from 'constants/colors';
 import React from 'react';
-import { View, StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { black } from 'constants/colors';
+import { StyleSheet, ViewStyle, TextStyle, TouchableOpacity } from 'react-native';
 import { TextView } from './text';
 
 interface IProps {
     message: string,
     style?: ViewStyle,
     passedTextStyle?: TextStyle | TextStyle[]
+    onPress?: () => void;
 }
 
 const ChatBubble: React.FC<IProps> = (props) => {
-    const { message, style, passedTextStyle = {} } = props;
+    const { message, style, passedTextStyle = {}, onPress } = props;
     return (
-        <View style={[styles.container, style]}>
+        <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
             <TextView title={message} style={[styles.defaultText, passedTextStyle]} textType="extraLight" />
-        </View>
+        </TouchableOpacity>
     );
 };
 

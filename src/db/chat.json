@@ -20,8 +20,17 @@
     {
         "userId": "234",
         "userName": "Mohit",
-        "userImageUrl": false,
+        "userImageUrl": true,
         "messageId": "m3",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "date": "Today",
+        "time": "3:40PM"
+    },
+    {
+        "userId": "234",
+        "userName": "Mohit",
+        "userImageUrl": false,
+        "messageId": "m4",
         "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "date": "Today",
         "time": "3:40PM"
