@@ -31,6 +31,7 @@ const HomeScreen: React.FC = () => {
     const [expanded, setExpanded] = useState<string[]>([]);
     const [isBottomSheetVisible, setIsBottomSheetVisible] = useState<boolean>(false);
 
+    //render booked rooms list
     const renderRoomList = ({ item, index }: { item: Room, index: number }): React.ReactElement => {
         return (
             <View style={styles.roomListContainer}>
@@ -47,17 +48,19 @@ const HomeScreen: React.FC = () => {
         )
     }
 
-    const handleShowMore = (id: string): void => {
+    //handle show more click event
+    const handleShowMoreClick = (id: string): void => {
         setExpanded([...expanded, id]);
     }
 
+    // show more button to show more then 1 booking
     const showShowMoreButton = (size: number, userId: string): React.ReactNode => {
         return (
             <View style={styles.showMoreButton}>
                 <CustomButton
                     textStyle={styles.buttonTextStyle}
                     title={`Show ${size - 1} more bookings`}
-                    onPress={() => handleShowMore(userId)}
+                    onPress={() => handleShowMoreClick(userId)}
                     textsize="extraSmall"
                     textType='bold'
                 />
@@ -65,6 +68,7 @@ const HomeScreen: React.FC = () => {
         )
     }
 
+    // render users list with booked rooms
     const renderUserList = ({ item }: { item: BookingData }): React.ReactElement => {
         const userId = item.user.userId;
         const bookingsList = item.bookings;
@@ -86,6 +90,7 @@ const HomeScreen: React.FC = () => {
                             data={item.bookings.slice(1, bookingsList.length)}
                             renderItem={renderRoomList}
                             keyExtractor={item => item.id}
+                            scrollEnabled={false}
                         />
 
                         : null
@@ -95,6 +100,7 @@ const HomeScreen: React.FC = () => {
         )
     }
 
+    //handle Pencil icon click event
     const onPencilIconPress = (): void => {
         setIsBottomSheetVisible(true);
     }
